@@ -1,11 +1,21 @@
-//string
-var str = 'string';
+/*//string
+let str:string = 'string';
+
 //number
-var num = 10;
+
+let num:number=10;
+
 //boolean
-var x = true;
-var f = false;
+let x:boolean=true;
+let f:boolean=false;
+
 //other
-var un = '1';
-un = 1;
-un = true;
+
+let un:any ='1';
+un =1;
+un=true;*/
+var numArray = [1, 2, 3,];
+var strArray = ['1', '2', '3'];
+var boolArray = [true, false];
+//tuples
+var array = [1, 2, '3'];
