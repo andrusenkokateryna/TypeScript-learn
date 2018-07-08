@@ -14,8 +14,24 @@ let f:boolean=false;
 let un:any ='1';
 un =1;
 un=true;*/
-var numArray = [1, 2, 3,];
-var strArray = ['1', '2', '3'];
-var boolArray = [true, false];
+// МАССИВЫ
+/*let numArray:Array<number>=[1,2,3,];
+let strArray:string[] =['1', '2', '3'];
+let boolArray:boolean[]=[true, false];
 //tuples
-var array = [1, 2, '3'];
+let array:[number, number, string]=[1,2,'3'];
+
+*/
+// ФУНКЦИИ
+/*function getMyAge(age:number, prefix:string='Age-'):string{
+    return prefix + age;
+}
+
+
+console.log(getMyAge(40));*/
+var mySum;
+function sum(num1, num2) {
+    return num1 + num2;
+}
+mySum = sum;
+console.log(mySum(15, 10));
