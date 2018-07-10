@@ -14,24 +14,24 @@ let f:boolean=false;
 let un:any ='1';
 un =1;
 un=true;*/
-// МАССИВЫ
-/*let numArray:Array<number>=[1,2,3,];
-let strArray:string[] =['1', '2', '3'];
-let boolArray:boolean[]=[true, false];
-//tuples
-let array:[number, number, string]=[1,2,'3'];
-
-*/
-// ФУНКЦИИ
-/*function getMyAge(age:number, prefix:string='Age-'):string{
-    return prefix + age;
-}
-
-
-console.log(getMyAge(40));*/
-var mySum;
-function sum(num1, num2) {
-    return num1 + num2;
-}
-mySum = sum;
-console.log(mySum(15, 10));
+var user = {
+    name: 'TS',
+    age: 50,
+    jobs: ['a', 'b'],
+     logName: function () {
+        console.log(this.name);
+    },
+    
+    getJobs: function () {
+        return this.jobs;
+    },
+   
+};
+var user2 = {
+    name: 'Max',
+    age: 30,
+    jobs: ['2'],
+    getJobs: function () {
+        return this.jobs;
+    }
+};
