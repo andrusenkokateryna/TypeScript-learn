@@ -1,3 +1,4 @@
+"use strict";
 /*//string
 let str:string = 'string';
 
@@ -100,8 +101,7 @@ var newVar;
 newVar = null;
 var myNumber = 20;
 myNumber = null;
-
-
+console.log(myNumber);
 /*class User {
     
     private isTeacher:boolean;
@@ -127,3 +127,4 @@ myNumber = null;
 
 const user=new User('Max', 'Frontend');
 user.setTitle(false);*/
+//# sourceMappingURL=index.js.map

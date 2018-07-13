@@ -124,8 +124,9 @@ function throwNewError(err:string):never{
 let newVar;
 newVar=null;
 
-let myNumber:number|null=20;
+let myNumber:null|number=20;
 myNumber=null;
+console.log(myNumber)
 
 
 
