@@ -14,24 +14,116 @@ let f:boolean=false;
 let un:any ='1';
 un =1;
 un=true;*/
-var user = {
-    name: 'TS',
-    age: 50,
-    jobs: ['a', 'b'],
-     logName: function () {
-        console.log(this.name);
-    },
+// МАССИВЫ
+/*let numArray:Array<number>=[1,2,3,];
+let strArray:string[] =['1', '2', '3'];
+let boolArray:boolean[]=[true, false];
+//tuples
+let array:[number, number, string]=[1,2,'3'];
+
+*/
+// ФУНКЦИИ
+/*
+function getMyAge(age:number, prefix:string='Age-'):string{
+    return prefix + age;
+}
+
+
+console.log(getMyAge(40));
+
+var mySum:(a:number, b:number)=> number;
+
+function sum (num1:number, num2:number) {
+    return num1 + num2;
+
+}
+mySum=sum;
+
+console.log(mySum(15,10))
+*/
+//Объекты
+/*type User ={name:string, age:number,getJobs:()=>string[], jobs:string[], logName?:()=>void}
+
+let user:User =  {
+name: 'TS',
+age:50,
+jobs:['a','b'],
+getJobs(){
+    return this.jobs
+},
+logName() {
+    console.log(this.name);
+}
+
+};
+
+let user2 :User= {
+    name:'Max',
+    age:30,
+    jobs:['2'],
+    getJobs(){
+    return this.jobs
+}
+};
+*/
+/*type User = {name: string, age:number}
+
+const user:User= {
+    name:'Max',
+    age:20
+};
+
+function logUser(user:User):void {
+    console.log(user.name+' '+user.age);
+}
+
+logUser(user);
+
+let eer;
+eer='1';
+eer=2*/
+// типы ts
+var Job;
+(function (Job) {
+    Job[Job["Frontend"] = 0] = "Frontend";
+    Job[Job["Backend"] = 50] = "Backend";
+    Job[Job["Designer"] = 51] = "Designer";
+})(Job || (Job = {}));
+var job = Job.Backend;
+console.log(job);
+var job2 = Job.Designer;
+console.log(job2);
+function throwNewError(err) {
+    throw new Error(err);
+}
+var newVar;
+newVar = null;
+var myNumber = 20;
+myNumber = null;
+
+
+/*class User {
     
-    getJobs: function () {
-        return this.jobs;
-    },
-   
-};
-var user2 = {
-    name: 'Max',
-    age: 30,
-    jobs: ['2'],
-    getJobs: function () {
-        return this.jobs;
+    private isTeacher:boolean;
+     protected age:number =30;
+     
+
+    constructor (public name:string, public job:string){}
+        
+        
+    
+
+    private getAge():number {
+        return this.age
     }
-};
+
+    public setTitle(title:boolean){
+        console.log(this.isTeacher);
+        this.isTeacher=title;
+        console.log(this.isTeacher);
+        console.log(this.getAge());
+    }
+}
+
+const user=new User('Max', 'Frontend');
+user.setTitle(false);*/
