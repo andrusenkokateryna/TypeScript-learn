@@ -1,4 +1,3 @@
-"use strict";
 /*//string
 let str:string = 'string';
 
@@ -15,6 +14,16 @@ let f:boolean=false;
 let un:any ='1';
 un =1;
 un=true;*/
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 // МАССИВЫ
 /*let numArray:Array<number>=[1,2,3,];
 let strArray:string[] =['1', '2', '3'];
@@ -84,47 +93,78 @@ let eer;
 eer='1';
 eer=2*/
 // типы ts
-var Job;
-(function (Job) {
-    Job[Job["Frontend"] = 0] = "Frontend";
-    Job[Job["Backend"] = 50] = "Backend";
-    Job[Job["Designer"] = 51] = "Designer";
-})(Job || (Job = {}));
-var job = Job.Backend;
+/*enum Job {
+    Frontend,
+    Backend=50,
+    Designer
+}
+
+const job:Job=Job.Backend;
 console.log(job);
-var job2 = Job.Designer;
+
+const job2:Job=Job.Designer;
 console.log(job2);
-function throwNewError(err) {
+
+function throwNewError(err:string):never{
     throw new Error(err);
-}
-var newVar;
-newVar = null;
-var myNumber = 20;
-myNumber = null;
-console.log(myNumber);
-/*class User {
     
-    private isTeacher:boolean;
-     protected age:number =30;
-     
-
-    constructor (public name:string, public job:string){}
-        
-        
-    
-
-    private getAge():number {
-        return this.age
-    }
-
-    public setTitle(title:boolean){
-        console.log(this.isTeacher);
-        this.isTeacher=title;
-        console.log(this.isTeacher);
-        console.log(this.getAge());
-    }
 }
 
-const user=new User('Max', 'Frontend');
-user.setTitle(false);*/
-//# sourceMappingURL=index.js.map
+
+let newVar;
+newVar=null;
+
+let myNumber:null|number=20;
+myNumber=null;
+console.log(myNumber)*/
+var User = /** @class */ (function () {
+    function User(name, job) {
+        this.name = name;
+        this.job = job;
+        //private isTeacher:boolean;
+        this.age = 30;
+    }
+    User.prototype.getAge = function () {
+        return this.age + '';
+    };
+    return User;
+}());
+var Max = /** @class */ (function (_super) {
+    __extends(Max, _super);
+    function Max(job) {
+        var _this = _super.call(this, 'Max', job) || this;
+        _this.name = 'Max';
+        _this.age = 100;
+        return _this;
+    }
+    Max.prototype.getAge = function () {
+        return 'Hello ' + this.age;
+    };
+    return Max;
+}(User));
+var user = new User('Max', 'Frontend');
+var max = new Max('Frontend');
+console.log(max.getAge());
+var Car = /** @class */ (function () {
+    function Car() {
+        this.year = 2010;
+    }
+    Car.prototype.getCarYear = function () {
+        return this.year;
+    };
+    return Car;
+}());
+var Mercedes = /** @class */ (function (_super) {
+    __extends(Mercedes, _super);
+    function Mercedes() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Mercedes.prototype.logInfo = function (info) {
+        console.log(info);
+    };
+    return Mercedes;
+}(Car));
+var car = new Mercedes();
+console.log(car);
+car.logInfo('info');
+console.log(car.getCarYear());

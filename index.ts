@@ -103,7 +103,7 @@ eer=2*/
 
 // типы ts
 
-enum Job {
+/*enum Job {
 	Frontend,
 	Backend=50,
 	Designer
@@ -126,7 +126,7 @@ newVar=null;
 
 let myNumber:null|number=20;
 myNumber=null;
-console.log(myNumber)
+console.log(myNumber)*/
 
 
 
@@ -136,28 +136,64 @@ console.log(myNumber)
 
 
 
-/*class User {
+class User {
 	
-	private isTeacher:boolean;
+	//private isTeacher:boolean;
 	 protected age:number =30;
 	 
 
-	constructor (public name:string, public job:string){}
+	constructor (public name:string, public job:string, ){}
 		
 		
 	
 
-	private getAge():number {
-		return this.age
+	public getAge():string {
+		return this.age+'';
 	}
 
-	public setTitle(title:boolean){
-		console.log(this.isTeacher);
-		this.isTeacher=title;
-		console.log(this.isTeacher);
-		console.log(this.getAge());
+	
+}
+
+class Max extends User {
+	name:string = 'Max';
+	constructor(job:string){
+		super('Max',job);
+		this.age = 100;
+	}
+
+	getAge():string {
+		return 'Hello '+this.age;
 	}
 }
 
 const user=new User('Max', 'Frontend');
-user.setTitle(false);*/
+const max= new Max('Frontend');
+console.log(max.getAge());
+
+
+
+abstract class Car  {
+	
+	model:string;
+	year:number=2010;
+
+	abstract logInfo(info:string):void;
+
+	
+
+	getCarYear(){
+		return this.year;
+	}
+}
+
+class Mercedes extends Car {
+	logInfo(info:string):void{
+		console.log(info);
+
+	}
+}
+
+const car =new Mercedes();
+console.log(car);
+car.logInfo('info');
+console.log(car.getCarYear())
