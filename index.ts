@@ -136,13 +136,13 @@ console.log(myNumber)*/
 
 
 
-class User {
+/*class User {
 	
 	//private isTeacher:boolean;
 	 protected age:number =30;
 	 
 
-	constructor (public name:string, public job:string, ){}
+	constructor (public name:string, public job:string ){}
 		
 		
 	
@@ -196,4 +196,63 @@ class Mercedes extends Car {
 const car =new Mercedes();
 console.log(car);
 car.logInfo('info');
-console.log(car.getCarYear())
+console.log(car.getCarYear())*/
+
+
+
+//ИНТЕРФЕЙСЫ
+
+
+interface ILength {
+	length:number
+
+}
+
+function getLength(variable:ILength):void{
+	console.log('getLength',variable.length);
+}
+getLength([1,2,3,4,5,]);
+
+const box = {
+	name:"Max",
+	length:20
+};
+getLength(box);
+getLength([1,2,3,4,5,6]);
+
+
+interface IUser {
+	name:string;
+	age?:number;
+	logInfo(info:string):void
+}
+
+interface IGetYear {
+	getYear():number;
+}
+
+const user:IUser={
+	name:'Max',
+	age:20,
+	logInfo(info) {
+		console.log('Info:', info);
+	}
+}
+
+class User implements IUser, IGetYear {
+	name:string='user';
+	job:string='Doctor';
+	logInfo(info:string):void{
+		console.log(info)
+	}
+
+	getYear():number {
+		return 200;
+	}
+
+
+}
+
+console.log(User);
+
+
