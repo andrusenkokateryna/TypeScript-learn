@@ -203,7 +203,7 @@ console.log(car.getCarYear())*/
 //ИНТЕРФЕЙСЫ
 
 
-interface ILength {
+/*interface ILength {
 	length:number
 
 }
@@ -242,7 +242,7 @@ const user:IUser={
 class User implements IUser, IGetYear {
 	name:string='user';
 	job:string='Doctor';
-	logInfo(info:string):void{
+	logInfo(info:string):void {
 		console.log(info)
 	}
 
@@ -254,5 +254,52 @@ class User implements IUser, IGetYear {
 }
 
 console.log(User);
+*/
 
 
+
+//Общие типы(generic)
+
+
+/*function getter(data:any){
+	return data;
+}
+
+console.log(getter(100));
+console.log(getter('Max'));
+
+*/
+//generic
+
+
+
+function genericGetter<T>(data:T): T{
+	return data;
+}
+
+
+
+const array:Array<number>=[1,2,3];
+
+let newGenericFunction:<T>(d:T)=>T=genericGetter;
+
+console.log(newGenericFunction<number>(100).toFixed(2));
+console.log(newGenericFunction<string>('Max').length);
+
+
+//generic whith classes
+
+
+class Multiply<T extends number | string> {
+	constructor(private a:T, private b:T){}
+
+	public getResult():number{
+		return +this.a * +this.b;
+	}
+}
+
+const mNum= new Multiply(10,5);
+console.log('Number: ', mNum.getResult());
+
+const mStr= new Multiply('40', '60');
+console.log('String: ', mStr.getResult());
