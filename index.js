@@ -291,6 +291,8 @@ function addShowAbility(constructorFn) {
         var pre = document.createElement('pre');
         pre.innerHTML = JSON.stringify(this);
         document.body.appendChild(pre);
+        document.body.style.background = "pink";
+        document.body.style.fontSize = '20px';
     };
 }
 var User = /** @class */ (function () {

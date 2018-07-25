@@ -335,6 +335,8 @@ function addShowAbility(constructorFn:Function){
 		pre.innerHTML = JSON.stringify(this);
 
 		document.body.appendChild(pre);
+		document.body.style.background="pink";
+		document.body.style.fontSize='20px';
 	}
 
 }
@@ -343,9 +345,9 @@ function addShowAbility(constructorFn:Function){
 
 class User  {
 	
-	constructor(public name:string, public age:number, public job:string) {
+	constructor(public name:string, public age:number, public job:string) {}
 		
-	}
+	
 
 	
 
