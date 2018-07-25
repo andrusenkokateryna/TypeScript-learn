@@ -273,7 +273,7 @@ console.log(getter('Max'));
 
 
 
-function genericGetter<T>(data:T): T{
+/*function genericGetter<T>(data:T): T{
 	return data;
 }
 
@@ -283,14 +283,14 @@ const array:Array<number>=[1,2,3];
 
 let newGenericFunction:<T>(d:T)=>T=genericGetter;
 
-console.log(newGenericFunction<number>(100).toFixed(2));
+console.log(newGenericFunction(100).toFixed(3));
 console.log(newGenericFunction<string>('Max').length);
 
 
 //generic whith classes
 
 
-class Multiply<T extends number | string> {
+class Multiply<T extends number|string > {
 	constructor(private a:T, private b:T){}
 
 	public getResult():number{
@@ -302,4 +302,55 @@ const mNum= new Multiply(10,5);
 console.log('Number: ', mNum.getResult());
 
 const mStr= new Multiply('40', '60');
-console.log('String: ', mStr.getResult());
+console.log('String: ', mStr.getResult());*/
+
+
+//Декораторы
+
+/*function logger(constrFn:Function){
+	console.log(constrFn);
+} 
+
+function shouldLog(flag:boolean):any{
+	return flag ? logger: null
+}
+
+@shouldLog(true)
+class User  {
+	
+	constructor(public name:string, public age:number) {
+		console.log('I am new user');
+	}
+}
+*/
+
+
+//=======================================================================================
+
+
+
+function addShowAbility(constructorFn:Function){
+	constructorFn.prototype.showHtml=function(){
+		const pre = document.createElement('pre');
+		pre.innerHTML = JSON.stringify(this);
+
+		document.body.appendChild(pre);
+	}
+
+}
+
+@addShowAbility
+
+class User  {
+	
+	constructor(public name:string, public age:number, public job:string) {
+		
+	}
+
+	
+
+}
+
+let user =new User('Max', 34, 'Frontend');
+console.log(user);
+(<any>user).showHtml();

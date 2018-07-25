@@ -15,6 +15,12 @@ let f:boolean=false;
 let un:any ='1';
 un =1;
 un=true;*/
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 // МАССИВЫ
 /*let numArray:Array<number>=[1,2,3,];
 let strArray:string[] =['1', '2', '3'];
@@ -232,26 +238,73 @@ console.log(getter('Max'));
 
 */
 //generic
-function genericGetter(data) {
+/*function genericGetter<T>(data:T): T{
     return data;
 }
-var array = [1, 2, 3];
-var newGenericFunction = genericGetter;
-console.log(newGenericFunction(100).toFixed(2));
-console.log(newGenericFunction('Max').length);
+
+
+
+const array:Array<number>=[1,2,3];
+
+let newGenericFunction:<T>(d:T)=>T=genericGetter;
+
+console.log(newGenericFunction(100).toFixed(3));
+console.log(newGenericFunction<string>('Max').length);
+
+
 //generic whith classes
-var Multiply = /** @class */ (function () {
-    function Multiply(a, b) {
-        this.a = a;
-        this.b = b;
-    }
-    Multiply.prototype.getResult = function () {
+
+
+class Multiply<T extends number|string > {
+    constructor(private a:T, private b:T){}
+
+    public getResult():number{
         return +this.a * +this.b;
-    };
-    return Multiply;
-}());
-var mNum = new Multiply(10, 5);
+    }
+}
+
+const mNum= new Multiply(10,5);
 console.log('Number: ', mNum.getResult());
-var mStr = new Multiply('40', '60');
-console.log('String: ', mStr.getResult());
+
+const mStr= new Multiply('40', '60');
+console.log('String: ', mStr.getResult());*/
+//Декораторы
+/*function logger(constrFn:Function){
+    console.log(constrFn);
+}
+
+function shouldLog(flag:boolean):any{
+    return flag ? logger: null
+}
+
+@shouldLog(true)
+class User  {
+    
+    constructor(public name:string, public age:number) {
+        console.log('I am new user');
+    }
+}
+*/
+//=======================================================================================
+function addShowAbility(constructorFn) {
+    constructorFn.prototype.showHtml = function () {
+        var pre = document.createElement('pre');
+        pre.innerHTML = JSON.stringify(this);
+        document.body.appendChild(pre);
+    };
+}
+var User = /** @class */ (function () {
+    function User(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+    }
+    User = __decorate([
+        addShowAbility
+    ], User);
+    return User;
+}());
+var user = new User('Max', 34, 'Frontend');
+console.log(user);
+user.showHtml();
 //# sourceMappingURL=index.js.map
