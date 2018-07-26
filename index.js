@@ -15,12 +15,6 @@ let f:boolean=false;
 let un:any ='1';
 un =1;
 un=true;*/
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 // МАССИВЫ
 /*let numArray:Array<number>=[1,2,3,];
 let strArray:string[] =['1', '2', '3'];
@@ -286,27 +280,73 @@ class User  {
 }
 */
 //=======================================================================================
-function addShowAbility(constructorFn) {
-    constructorFn.prototype.showHtml = function () {
-        var pre = document.createElement('pre');
+/*function addShowAbility(constructorFn:Function){
+    constructorFn.prototype.showHtml=function(){
+        const pre = document.createElement('pre');
         pre.innerHTML = JSON.stringify(this);
+
         document.body.appendChild(pre);
-        document.body.style.background = "pink";
-        document.body.style.fontSize = '20px';
-    };
-}
-var User = /** @class */ (function () {
-    function User(name, age, job) {
-        this.name = name;
-        this.age = age;
-        this.job = job;
+        document.body.style.background="pink";
+        document.body.style.fontSize='20px';
+        let a=document.getElementsByTagName('pre');
+        a.style.color='red';
+
     }
-    User = __decorate([
-        addShowAbility
-    ], User);
-    return User;
-}());
-var user = new User('Max', 34, 'Frontend');
+
+}
+
+@addShowAbility
+
+class User  {
+    
+    constructor(public name:string, public age:number, public job:string) {}
+        
+    
+
+    
+
+}
+
+let user =new User('Max', 34, 'Frontend');
 console.log(user);
-user.showHtml();
+(<any>user).showHtml();*/
+//Namespace
+/*
+function isEmpty(d:any):boolean{
+    return !d;
+}
+
+function isUndefined(d:any):boolean{
+    return typeof d==='undefined'
+}
+
+
+console.log(isEmpty(''));
+console.log(isEmpty('sa'));
+
+console.log(isUndefined(20));
+console.log(isUndefined(undefined));
+console.log(isUndefined(null));
+
+
+const PI=Math.PI;
+const EXP=Math.E;*/
+var Util;
+(function (Util) {
+    function isEmpty(d) {
+        return !d;
+    }
+    Util.isEmpty = isEmpty;
+    function isUndefined(d) {
+        return typeof d === 'undefined';
+    }
+    Util.PI = Math.PI;
+    Util.EXP = Math.E;
+})(Util || (Util = {}));
+var EXP = 'TEST';
+console.log(Util.isEmpty(''));
+console.log(Util.isEmpty('rew'));
+console.log(Util.PI);
+console.log(Util.EXP);
+console.log(EXP);
 //# sourceMappingURL=index.js.map

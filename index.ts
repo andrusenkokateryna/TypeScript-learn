@@ -329,7 +329,7 @@ class User  {
 
 
 
-function addShowAbility(constructorFn:Function){
+/*function addShowAbility(constructorFn:Function){
 	constructorFn.prototype.showHtml=function(){
 		const pre = document.createElement('pre');
 		pre.innerHTML = JSON.stringify(this);
@@ -337,6 +337,9 @@ function addShowAbility(constructorFn:Function){
 		document.body.appendChild(pre);
 		document.body.style.background="pink";
 		document.body.style.fontSize='20px';
+		let a=document.getElementsByTagName('pre');
+		a.style.color='red';
+
 	}
 
 }
@@ -355,4 +358,51 @@ class User  {
 
 let user =new User('Max', 34, 'Frontend');
 console.log(user);
-(<any>user).showHtml();
+(<any>user).showHtml();*/
+
+
+
+//Namespace
+
+/*
+function isEmpty(d:any):boolean{
+	return !d;
+}
+
+function isUndefined(d:any):boolean{
+	return typeof d==='undefined'
+}
+
+
+console.log(isEmpty(''));
+console.log(isEmpty('sa'));
+
+console.log(isUndefined(20));
+console.log(isUndefined(undefined));
+console.log(isUndefined(null));
+
+
+const PI=Math.PI;
+const EXP=Math.E;*/
+
+namespace Util{
+export	function isEmpty(d:any):boolean{
+	return !d;
+}
+
+function isUndefined(d:any):boolean{
+	return typeof d==='undefined'
+}
+
+export const PI=Math.PI;
+ export const EXP=Math.E;
+
+}
+
+const EXP='TEST'
+
+console.log(Util.isEmpty(''));
+console.log(Util.isEmpty('rew'));
+console.log(Util.PI);
+console.log(Util.EXP);
+console.log(EXP);
