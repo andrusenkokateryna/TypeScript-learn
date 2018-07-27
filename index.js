@@ -349,4 +349,66 @@ console.log(Util.isEmpty('rew'));
 console.log(Util.PI);
 console.log(Util.EXP);
 console.log(EXP);
+var Personnel;
+(function (Personnel) {
+    var Employee = /** @class */ (function () {
+        function Employee(name) {
+            this.name = name;
+        }
+        return Employee;
+    }());
+    Personnel.Employee = Employee;
+    function work(emp) {
+        console.log(emp.name, "is working");
+    }
+    Personnel.work = work;
+    Personnel.defaultUser = { name: "Kate" };
+})(Personnel || (Personnel = {}));
+var tom = new Personnel.Employee("Tom");
+Personnel.work(tom); // Tom is working
+console.log(Personnel.defaultUser.name);
+// Вложенность пространтв имен
+var Data;
+(function (Data) {
+    var Person;
+    (function (Person) {
+        var Empl = /** @class */ (function () {
+            function Empl(name) {
+                this.name = name;
+            }
+            return Empl;
+        }());
+        Person.Empl = Empl;
+    })(Person = Data.Person || (Data.Person = {}));
+    var Clients;
+    (function (Clients) {
+        var VipClient = /** @class */ (function () {
+            function VipClient(name) {
+                this.name = name;
+            }
+            return VipClient;
+        }());
+        Clients.VipClient = VipClient;
+    })(Clients = Data.Clients || (Data.Clients = {}));
+})(Data || (Data = {}));
+var mot = new Data.Person.Empl("Tom");
+console.log(mot.name);
+var sam = new Data.Clients.VipClient("Sam");
+console.log(sam.name);
+// Псевдонимы 
+(function (Data) {
+    var Pers;
+    (function (Pers) {
+        var Employeen = /** @class */ (function () {
+            function Employeen(name) {
+                this.name = name;
+            }
+            return Employeen;
+        }());
+        Pers.Employeen = Employeen;
+    })(Pers = Data.Pers || (Data.Pers = {}));
+})(Data || (Data = {}));
+var employee = Data.Pers.Employeen;
+var usr = new employee("Vanya");
+console.log(usr.name);
 //# sourceMappingURL=index.js.map

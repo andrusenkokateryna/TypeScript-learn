@@ -22,4 +22,4 @@
 
 11) Декораторы в TS;
 
-12) Namespace в Ts;
+12) Namespace в Ts или module;

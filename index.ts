@@ -395,7 +395,7 @@ function isUndefined(d:any):boolean{
 }
 
 export const PI=Math.PI;
- export const EXP=Math.E;
+export const EXP=Math.E;
 
 }
 
@@ -406,3 +406,69 @@ console.log(Util.isEmpty('rew'));
 console.log(Util.PI);
 console.log(Util.EXP);
 console.log(EXP);
+
+
+namespace Personnel {
+ 
+    export interface IUser{
+        displayInfo():any;
+    }
+     
+    export class Employee {
+        constructor(public name: string){
+        }
+    }
+     
+    export function work(emp: Employee) : void{
+        console.log(emp.name, "is working");
+    }
+     
+    export let defaultUser= { name: "Kate" }
+}
+ 
+let tom = new Personnel.Employee("Tom")
+Personnel.work(tom);                    // Tom is working
+ 
+console.log(Personnel.defaultUser.name);  
+
+// Вложенность пространтв имен
+
+namespace Data{
+    export namespace Person {
+        export class Empl {
+         
+            constructor(public name: string){
+            }
+        }
+    }
+    export namespace Clients {
+        export class VipClient {
+         
+            constructor(public name: string){
+            }
+        }
+    }
+}
+ 
+let mot = new Data.Person.Empl("Tom")
+console.log(mot.name);
+ 
+let sam = new Data.Clients.VipClient("Sam");
+console.log(sam.name);
+
+
+// Псевдонимы 
+
+namespace Data{
+    export namespace Pers {
+        export class Employeen {
+         
+            constructor(public name: string){
+            }
+        }
+    }
+}
+ 
+import employee = Data.Pers.Employeen;
+let usr = new employee("Vanya")
+console.log(usr.name);
