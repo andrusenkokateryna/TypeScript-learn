@@ -1,0 +1,73 @@
+Install webpack and ts dependencies.
+We need to install the webpack and other as development dependencies.
+
+ 1) npm install webpack webpack-cli webpack-dev-server --save-dev 
+
+
+
+Now we need to install locally TypeScript compiler and the TypeScript loader.
+
+2) npm install typescript ts-loader --save-dev 
+
+
+Also, generate a package.json file by typing the following command.
+
+ 3) npm init -y 
+
+Step 5: Create webpack configuration file.
+
+Inside root folder, create one file called webpack.config.js.
+
+  const path = require('path'); 
+
+  module.exports = { 
+      entry: path.join(__dirname, '/app.ts'), 
+      output: { 
+          filename: 'app.js', 
+          path: __dirname 
+      }, 
+      module: { 
+          rules: [ 
+              { 
+                  test: /\.tsx?$/, 
+                  loader: 'ts-loader', 
+                  exclude: /node_modules/, 
+              }, 
+          ] 
+      }, 
+      resolve: { 
+          extensions: [".tsx", ".ts", ".js"] 
+      }, 
+  }; 
+In this file, we have defined the entry point file as an app.ts. So let us create that file first.
+
+  // app.ts // у меня уже был создан index.html
+
+   
+Now, this file prints merely my name in the console but this code is in typescript, and we want to run this file in the browser. So we have defined the webpack.config.js file. In that, I have described entry, output, and the module that contains typescript loader that helps us to run the code in the javascript.
+
+Okay when we run webpack-dev-server, it output the file named app.js. So app.js is the file we need to include the index.html file. We have not created the index.html file so, let us do it first.//but I have index.js
+
+  <!DOCTYPE html> 
+  <html lang="en"> 
+  <head> 
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+      <title>Document</title> 
+  </head> 
+  <body> 
+      <script src="index.js" type="text/javascript"></script> 
+  </body> 
+  </html> 
+Step 6: Run the webpack development server.
+Go to the package.json file and add the following script.
+
+  "scripts": { 
+      "start": "webpack-dev-server --mode development" 
+  }, 
+Now, go to the terminal and start the server.
+
+  npm start
+
+  http://localhost:8080/

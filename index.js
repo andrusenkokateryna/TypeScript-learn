@@ -409,6 +409,6 @@ console.log(sam.name);
     })(Pers = Data.Pers || (Data.Pers = {}));
 })(Data || (Data = {}));
 var employee = Data.Pers.Employeen;
-var usr = new employee("Vanya");
+var usr = new employee("Masha");
 console.log(usr.name);
 //# sourceMappingURL=index.js.map

@@ -470,5 +470,5 @@ namespace Data{
 }
  
 import employee = Data.Pers.Employeen;
-let usr = new employee("Vanya")
+let usr = new employee("Masha")
 console.log(usr.name);
