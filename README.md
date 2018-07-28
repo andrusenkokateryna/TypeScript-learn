@@ -24,4 +24,4 @@
 
 12) Namespace в Ts или module;
 
-13) Webpack whith TS;
+13) Webpack with TS;
