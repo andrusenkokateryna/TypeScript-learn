@@ -1,31 +1,4 @@
-{
-  "name": "TypeScr-less",
-  "version": "1.0.0",
-  "description": "1) Базовые типы и компиляция;",
-  "main": "index.js",
-  "dependencies": {
-    "awesome-typescript-loader": "^5.2.0",
-    "ts-loader": "^4.4.2",
-    "typescript": "^2.9.2",
-    "webpack": "^4.16.3",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-     "start": "webpack-dev-server --mode development" 
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andrusenkokateryna/TypeScript-learn.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/andrusenkokateryna/TypeScript-learn/issues"
-  },
-  "homepage": "https://github.com/andrusenkokateryna/TypeScript-learn#readme"
-}
-
+"scripts": {
+        "build": "webpack -p",
+        "watch": "webpack --watch"
+    },
